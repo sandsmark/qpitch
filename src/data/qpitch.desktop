@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=QPitch
+Comment=Simple chromatic tuner for musical instruments
+Exec=qpitch
+Icon=/usr/share/pixmaps/qpitch.xpm
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;Music;Qt

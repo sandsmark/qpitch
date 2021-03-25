@@ -1,0 +1,22 @@
+.TH QPITCH 1 "January 10, 2009"
+.SH NAME
+qpitch - QPitch
+.SH SYNOPSIS
+.B qpitch
+.br
+.SH DESCRIPTION
+This manual page documents briefly the
+.B qpitch
+program.
+.PP
+QPitch is a program to tune a musical instrument using your computer and its microphone or line-in input.
+
+The pitch detection algorithm is based on finding the first peak in the autocorrelation of the input signal.The method is quite reliable (even if a peak may also occur at sub-harmonics or harmonics leading to an erroneous pitch detection). The fundamental frequency used as a reference for pitch detection can be configured according to the user preferences.
+
+QPitch 1.0 is an offspring of the K3Guitune 1.0, which has been rewritten almost from scratch to take advantage of the new features of Qt4 and to use the cross-platform PortAudio library. The FFT is performed using the FFTW library. It is designed to be completely cross-platform and works on Linux, Mac and Windows platforms.
+.SH SEE ALSO
+.TP
+.BR http://home.gna.org/qpitch
+Project web page.
+.SH AUTHOR
+This manual page was written by William Spinelli <wylliam@tiscali.it>, for the Debian GNU/Linux system (but may be used by others).

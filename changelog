@@ -1,0 +1,24 @@
+1.0:
+ * New version forked from K3Guitune in order to obtain a cross-platform
+ application. The new name of the application is QPitch. The authors of the
+ original application suggested a rename.
+ * The description of the changes is given with respect to K3Guitune 1.0
+ * Removed all KDE dependencies in order to obtain a cross-platform application.
+ * Removed all OSS/ARTS/ALSA/JACK code and replaced with PortAudio library
+ which is cross-platform. The initialization of the peripheral uses the same
+ parameters. Now the audio input is based on a callback function which is
+ triggered when the buffer is full.
+ * Switched to Qt4 to take advantage of its new capabilites.
+ * Added a preference windows to select sample frequency, buffer size,
+ reference frequency for A4 and musical notation.
+ * Removed all the code needed to create the GUI and replaced with a .ui file
+ obtained with Qt-Designer.
+ * Fixed QOsziView and QLogView to redraw all the widget only when really
+ needed.
+ * Fixed auto-correlation computation to obtain a cleaner code.
+ * Dropped translations... too bad!!
+ * All this code has been contributed by William Spinelli
+
+1.0.1:
+* Added a cmake script to simplify the building process (contributed by Nico
+ Schlömer)
