@@ -26,6 +26,7 @@
 #include <cmath>
 
 #include <QPainter>
+#include <QPainterPath>
 
 // ** MUSICAL NOTATIONS ** //
 const QString QLogView::NoteLabel[6][12] = {

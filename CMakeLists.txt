@@ -1,3 +1,4 @@
+project(qpitch)
 ##
 # CMakeLists.txt for QPitch - Program for tuning instruments
 #
@@ -6,7 +7,7 @@
 ##
 
 # set minimum cmake version
-cmake_minimum_required( VERSION 2.4.5 )
+cmake_minimum_required( VERSION 3.0 )
 
 
 # set path for additional cmake modules

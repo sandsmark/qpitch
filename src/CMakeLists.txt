@@ -55,26 +55,20 @@ add_definitions( -O2 -w -DQT_NO_DEBUG )
 
 
 # find the required libraries and sets the corresponding environment variables
-find_package( Qt4 REQUIRED )
+find_package( Qt5 REQUIRED COMPONENTS Widgets)
 find_package( Portaudio REQUIRED )
 find_package( FFTW3 REQUIRED )
 
-
-# QT_USE_FILE is a variable defined by find_package( Qt4 ) that contains a
-# path to CMake
-include( ${QT_USE_FILE} )
-
-
 # run rcc on all resources files
-qt4_add_resources( QPITCH_RC_SRCS ${QPITCH_RCS} )
+qt5_add_resources( QPITCH_RC_SRCS ${QPITCH_RCS} )
 
 
 # run uic on all forms files
-qt4_wrap_ui( QPITCH_UI_HDRS ${QPITCH_UIS} )
+qt5_wrap_ui( QPITCH_UI_HDRS ${QPITCH_UIS} )
 
 
 # run moc on all intermediate files
-qt4_wrap_cpp( QPITCH_MOC_SRCS ${QPITCH_MOC_HDRS} )
+qt5_wrap_cpp( QPITCH_MOC_SRCS ${QPITCH_MOC_HDRS} )
 
 
 # include headers produced by uic in our code
@@ -100,7 +94,7 @@ add_executable( qpitch
 # add library dependencies needed by the executable (variables are filled
 # by FIND_PACKAGE)
 target_link_libraries( qpitch
-	${QT_LIBRARIES}
+    Qt5::Widgets
 	${PORTAUDIO_LIBRARIES}
 	${FFTW3_LIBRARIES}
 )
