@@ -149,8 +149,8 @@ QPitch::QPitch( QMainWindow* parent ) : QMainWindow( parent )
 	flags &= ~Qt::WindowMaximizeButtonHint;
 	setWindowFlags( flags );
 
-	// ** START REPAINT TIMER WITH 100 MSEC REFRESH RATE ** //
-	_hRepaintTimer->start( 100 );
+	// ** START REPAINT TIMER WITH 60 FPS REFRESH RATE ** //
+	_hRepaintTimer->start( 16 );
 }
 
 
