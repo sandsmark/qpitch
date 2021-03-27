@@ -1,14 +1,14 @@
-========
-= TODO =
-========
+TODO
+====
 
 Port away from portaudio, it is a shitshow.
 
 
 
-=========================================
-= QPitch 1.0.1 - Simple chromatic tuner =
-=========================================
+QPitch 1.0.1 - Simple chromatic tuner
+=====================================
+
+![screenshot](/screenshot.png)
 
 QPitch is a program to tune a musical instrument using your
 computer and its microphone or line-in input. It is designed
@@ -35,23 +35,21 @@ while the input signal and the autocorrelation function are
 displayed using an oscilloscope-like plot.
 
 
-================
-= Requirements =
-================
-Portaudio  >= pa_stable_v19_061121	<www.portaudio.com>
-Qt toolkit >= 4.2.0			<www.trolltech.com>
-FFTW3      >= 3.1.0			<www.fftw.org>
+Requirements
+============
+ - Portaudio	<www.portaudio.com>
+ - Qt toolkit			<www.trolltech.com>
+ - FFTW3			<www.fftw.org>
 
 As usual the latest the version, the best =)
 
 
-================================
-= Compilation and installation =
-================================
+Compilation and installation
+============================
 There are basically two ways to compile QPitch (with the
 first one preferred)
 
-Compilation using cmake [contributed by Nico Schlömer]
+Compilation using cmake )contributed by Nico Schlömer)
 ------------------------------------------------------
 The first option is mainly based on the cmake utility
 to create a suitable Makefile. Any version of cmake grater
@@ -65,25 +63,10 @@ $ cmake ..
 $ make
 
 
-Compilation using qmake
------------------------
-The second option is mainly based on the qmake utility shipped
-with the Qt4 library to create a suitable Makefile.
+Authors and contributors
+========================
 
-$ tar -xjvf qpitch-1.0.1.tar.bz2
-$ cd qpitch-1.0.1/src
-$ qmake qpitch.pro
-$ make
-
-If the required libraries are not installed system wide, you
-may have to adjust the qpitch.pro file in order to include
-the correct path and run qmake to update the Makefile.
-
-
-============================
-= Authors and contributors =
-============================
-
+```
 Main author of QPitch
   William Spinelli <wylliam@tiscali.it>
 
@@ -94,6 +77,4 @@ Authors of the original K3Guitune
 
 Cmake build script provided by
   Nico Schlömer <nico.schloemer@gmx.net>
-
------------------------------------------
-Last update Mon Aug 11 14:03:09 CEST 2008
+```
