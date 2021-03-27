@@ -1,3 +1,11 @@
+========
+= TODO =
+========
+
+Port away from portaudio, it is a shitshow.
+
+
+
 =========================================
 = QPitch 1.0.1 - Simple chromatic tuner =
 =========================================
