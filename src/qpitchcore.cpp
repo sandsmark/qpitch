@@ -99,10 +99,21 @@ void QPitchCore::startStream( const unsigned int sampleFrequency, const unsigned
 	}
 	_referenceSineWave_index = 0;
 #endif
+        _inputParameters.device = -1;
+        for (int i = 0, end = Pa_GetDeviceCount(); i != end; ++i) {
+            PaDeviceInfo const* info = Pa_GetDeviceInfo(i);
+            if (!info) continue;
+            if (strcmp(info->name, "pulse") == 0) {
+                _inputParameters.device = i;
+                break;
+            }
+        }
 
 	// ** CONFIGURE THE INPUT AUDIO STREAM ** //
 	_sampleFrequency							=	sampleFrequency;
-	_inputParameters.device						=	Pa_GetDefaultInputDevice( );				// default input device
+        if (_inputParameters.device == -1) {
+            _inputParameters.device						=	Pa_GetDefaultInputDevice( );				// default input device
+        }
 	_inputParameters.channelCount				=	1;											// mono input
 	_inputParameters.sampleFormat				=	paInt16;									// 16 bit integer
 	_inputParameters.suggestedLatency			=	Pa_GetDeviceInfo( _inputParameters.device )->defaultHighInputLatency;
