@@ -143,6 +143,7 @@ void QOsziView::paintEvent( QPaintEvent* /* event */ )
 
 		// setup the painter
 		painter.begin( &_pixmap );
+        painter.setRenderHint(QPainter::Antialiasing);
 
 		// ** UPPER AXIS ** //
 		painter.translate( plotArea_sideMargin, plotArea_topMargin + plotArea_height );
@@ -171,6 +172,7 @@ void QOsziView::paintEvent( QPaintEvent* /* event */ )
 	// ** DISPLAY THE OFFSCREEN BUFFER ** //
 	painter.begin( this );
 	painter.drawPixmap( 0, 0, _pixmap );
+        painter.setRenderHint(QPainter::Antialiasing);
 
 	if ( _drawForeground == true ) {
 		// ** UPPER AXIS ** //
