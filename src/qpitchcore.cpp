@@ -249,7 +249,7 @@ int QPitchCore::paCallback( const void* input, void* /*output*/, unsigned long f
 int QPitchCore::paStoreInputBufferCallback( const short int* input, unsigned long frameCount )
 {
     // ** TRY TO ACQUIRE THE SEMAPHORE ** //
-    if ( _mutex->tryLock( ) ) {
+    if ( _mutex->tryLock( 1 ) ) {
         // buffer has been locked
         _mutex->unlock( );
 
