@@ -5,12 +5,13 @@
 #                         William Spinelli <wylliam@tiscali.it>
 ##
 
-# set project's name
-project( QPITCH )
+# place the binaries to the root of the build directory
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
+set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
 
-# list of all source files
-set( QPITCH_SRCS
+# set object files dependencies for the executable
+add_executable( qpitch
 	main.cpp
 	qaboutdlg.cpp
 	qlogview.cpp
@@ -18,77 +19,22 @@ set( QPITCH_SRCS
 	qpitch.cpp
 	qpitchcore.cpp
 	qsettingsdlg.cpp
-)
 
-
-# list of all header files that should be treated with moc
-set( QPITCH_MOC_HDRS
 	qaboutdlg.h
 	qlogview.h
 	qosziview.h
 	qpitchcore.h
 	qpitch.h
 	qsettingsdlg.h
-)
 
+	ui/qpitch.qrc
 
-# list of .ui files
-set( QPITCH_UIS
 	ui/qaboutdlg.ui
 	ui/qpitch.ui
 	ui/qsettingsdlg.ui
 )
 
-
-# list of resource file
-set( QPITCH_RCS
-	ui/qpitch.qrc
-)
-
-
-# set compiler options
-add_definitions( -O2 -w -DQT_NO_DEBUG )
-
-
-# enable additional modules (by default only QtCore and QtGui are enabled)
-# set( QT_USE_QTXML TRUE )
-
-
-# find the required libraries and sets the corresponding environment variables
-find_package( Qt5 REQUIRED COMPONENTS Widgets)
-find_package( Portaudio REQUIRED )
-find_package( FFTW3 REQUIRED )
-
-# run rcc on all resources files
-qt5_add_resources( QPITCH_RC_SRCS ${QPITCH_RCS} )
-
-
-# run uic on all forms files
-qt5_wrap_ui( QPITCH_UI_HDRS ${QPITCH_UIS} )
-
-
-# run moc on all intermediate files
-qt5_wrap_cpp( QPITCH_MOC_SRCS ${QPITCH_MOC_HDRS} )
-
-
-# include headers produced by uic in our code
-include_directories(
-	${QPITCH_BINARY_DIR}
-	${QPITCH_SOURCE_DIR}
-)
-
-
-# place the binaries to the root of the build directory
-set( EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR} )
-
-
-# set object files dependencies for the executable
-add_executable( qpitch
-	${QPITCH_SRCS}
-	${QPITCH_MOC_SRCS}
-	${QPITCH_RC_SRCS}
-	${QPITCH_UI_HDRS}
-)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 
 # add library dependencies needed by the executable (variables are filled
