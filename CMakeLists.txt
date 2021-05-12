@@ -13,7 +13,11 @@ cmake_minimum_required( VERSION 3.0 )
 # set path for additional cmake modules
 set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules )
 # find the required libraries and sets the corresponding environment variables
-find_package( Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 COMPONENTS Widgets)
+if (NOT Qt6_FOUND)
+    find_package(Qt5 5.15 COMPONENTS Core REQUIRED)
+endif()
+
 find_package( Portaudio REQUIRED )
 find_package( FFTW3 REQUIRED )
 

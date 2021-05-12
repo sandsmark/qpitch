@@ -40,7 +40,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # add library dependencies needed by the executable (variables are filled
 # by FIND_PACKAGE)
 target_link_libraries( qpitch
-    Qt5::Widgets
+    Qt::Widgets
 	${PORTAUDIO_LIBRARIES}
 	${FFTW3_LIBRARIES}
 )
