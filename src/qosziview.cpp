@@ -151,7 +151,7 @@ void QOsziView::paintEvent( QPaintEvent* /* event */ )
 
 		// draw title
 		painter.setPen( QPen( palette( ).text( ), 0, Qt::SolidLine ) );
-		painter.drawText( plotArea_width / 2 - painter.fontMetrics( ).width( QString("Audio signal [ms]") ) / 2 + 1,
+		painter.drawText( plotArea_width / 2 - painter.fontMetrics( ).horizontalAdvance( QString("Audio signal [ms]") ) / 2 + 1,
 			- plotArea_height - painter.fontMetrics( ).descent( ) - LABEL_SPACING,
 			QString("Audio signal [ms]") );
 
@@ -162,7 +162,7 @@ void QOsziView::paintEvent( QPaintEvent* /* event */ )
 
 		// draw title
 		painter.setPen( QPen( palette( ).text( ), 0, Qt::SolidLine ) );
-		painter.drawText( plotArea_width / 2 - painter.fontMetrics( ).width( QString("Autocorrelation [Hz]") ) / 2 + 1,
+		painter.drawText( plotArea_width / 2 - painter.fontMetrics( ).horizontalAdvance( QString("Autocorrelation [Hz]") ) / 2 + 1,
 			- plotArea_height - painter.fontMetrics( ).descent( ) - LABEL_SPACING,
 			QString("Autocorrelation [Hz]") );
 
@@ -234,7 +234,7 @@ void QOsziView::drawLinearAxis( QPainter& painter, const int plotArea_width, con
 	painter.setFont( font );
 	painter.setPen( QPen( palette( ).text( ), 0, Qt::SolidLine ) );
 	for ( unsigned int k = 0 ; k <= 10 ; ++k ) {
-		painter.drawText( (unsigned int)(k * 0.1 * plotArea_width) - painter.fontMetrics( ).width( QString("%1").arg( (unsigned int)(k * 0.1 * xAxisRange) ) ) / 2 + 1,
+		painter.drawText( (unsigned int)(k * 0.1 * plotArea_width) - painter.fontMetrics( ).horizontalAdvance( QString("%1").arg( (unsigned int)(k * 0.1 * xAxisRange) ) ) / 2 + 1,
 			plotArea_height + painter.fontMetrics( ).ascent( ) + LABEL_SPACING,
 			QString("%1").arg( (unsigned int)(k * 0.1 * xAxisRange) ) );
 	}
@@ -271,7 +271,7 @@ void QOsziView::drawReversedLogAxis( QPainter& painter, const int plotArea_width
 			QFont font = painter.font( );
 			font.setPointSize( font.pointSize( ) - 2 );
 			painter.setFont( font );
-			painter.drawText( xTick - painter.fontMetrics( ).width( QString("%1").arg( (unsigned int) freq ) ) / 2 + 1,
+			painter.drawText( xTick - painter.fontMetrics( ).horizontalAdvance( QString("%1").arg( (unsigned int) freq ) ) / 2 + 1,
 				plotArea_height + painter.fontMetrics( ).ascent( ) + LABEL_SPACING,
 				QString("%1").arg( ( (unsigned int) freq ) ) );
 			painter.restore( );
@@ -284,7 +284,7 @@ void QOsziView::drawReversedLogAxis( QPainter& painter, const int plotArea_width
 			QFont font = painter.font( );
 			font.setPointSize( font.pointSize( ) - 2 );
 			painter.setFont( font );
-			painter.drawText( xTick - painter.fontMetrics( ).width( QString("%1").arg( (unsigned int)((k % 10) * freq) ) ) / 2 + 1,
+			painter.drawText( xTick - painter.fontMetrics( ).horizontalAdvance( QString("%1").arg( (unsigned int)((k % 10) * freq) ) ) / 2 + 1,
 				plotArea_height + painter.fontMetrics( ).ascent( ) + LABEL_SPACING,
 				QString("%1").arg( ( (unsigned int)((k % 10) * freq) ) ) );
 			painter.restore( );

@@ -231,11 +231,11 @@ void QLogView::paintEvent( QPaintEvent* /* event */ )
 		for ( unsigned int k = 0 ; k < 12 ; ++k ) {
 			xTick = (int) ( scaleWidth / 24.0 + scaleWidth / 12.0 * k );
 			// label above the bar
-			painter.drawText( xTick - (painter.fontMetrics( ).width( NoteLabel[2 * _tuningNotation][k] ) / 2 + 1),
+			painter.drawText( xTick - (painter.fontMetrics( ).horizontalAdvance( NoteLabel[2 * _tuningNotation][k] ) / 2 + 1),
 				- BAR_HEIGHT - painter.fontMetrics( ).descent( ) - LABEL_OFFSET,
 				NoteLabel[2 * _tuningNotation][k] );
 			// label below the bar
-			painter.drawText( xTick - (painter.fontMetrics( ).width( NoteLabel[2 * _tuningNotation + 1][k] ) / 2 + 1),
+			painter.drawText( xTick - (painter.fontMetrics( ).horizontalAdvance( NoteLabel[2 * _tuningNotation + 1][k] ) / 2 + 1),
 				BAR_HEIGHT + painter.fontMetrics( ).ascent( ) + LABEL_OFFSET,
 				NoteLabel[2 * _tuningNotation + 1][k] );
 		}
@@ -262,10 +262,10 @@ void QLogView::paintEvent( QPaintEvent* /* event */ )
 			// draw a square around the note when the error pitch is less than 2.5 percent
 			painter.setRenderHint( QPainter::Antialiasing, true );
 			painter.setPen( QPen( Qt::red, 0, Qt::SolidLine ) );
-			painter.drawRoundRect( QRectF ( xTick - painter.fontMetrics( ).width( NoteLabel[2 * _tuningNotation][_currentPitch] ) / 2.0 - CARET_BORDER,
+			painter.drawRoundedRect( QRectF ( xTick - painter.fontMetrics( ).horizontalAdvance( NoteLabel[2 * _tuningNotation][_currentPitch] ) / 2.0 - CARET_BORDER,
 				-BAR_HEIGHT - painter.fontMetrics( ).ascent( ) - LABEL_OFFSET - CARET_BORDER,
-				painter.fontMetrics( ).width( NoteLabel[2 * _tuningNotation][_currentPitch] ) + 2 * CARET_BORDER,
-				2 * ( BAR_HEIGHT + painter.fontMetrics( ).ascent( ) + LABEL_OFFSET + CARET_BORDER) ), 15, 15 );
+				painter.fontMetrics( ).horizontalAdvance( NoteLabel[2 * _tuningNotation][_currentPitch] ) + 2 * CARET_BORDER,
+				2 * ( BAR_HEIGHT + painter.fontMetrics( ).ascent( ) + LABEL_OFFSET + CARET_BORDER) ), 15, 15, Qt::RelativeSize );
 			painter.setRenderHint( QPainter::Antialiasing, false );
 		}
 
@@ -273,11 +273,11 @@ void QLogView::paintEvent( QPaintEvent* /* event */ )
 		painter.setPen( QPen( Qt::red, 0, Qt::SolidLine ) );
 
 		// label above the bar
-		painter.drawText( xTick - (painter.fontMetrics( ).width( NoteLabel[2 * _tuningNotation][_currentPitch] ) / 2 + 1),
+		painter.drawText( xTick - (painter.fontMetrics( ).horizontalAdvance( NoteLabel[2 * _tuningNotation][_currentPitch] ) / 2 + 1),
 			-BAR_HEIGHT - painter.fontMetrics( ).descent( ) - LABEL_OFFSET,
 			NoteLabel[2 * _tuningNotation][_currentPitch] );
 		// label below the bar
-		painter.drawText( xTick - (painter.fontMetrics( ).width( NoteLabel[2 * _tuningNotation + 1][_currentPitch] ) / 2 + 1),
+		painter.drawText( xTick - (painter.fontMetrics( ).horizontalAdvance( NoteLabel[2 * _tuningNotation + 1][_currentPitch] ) / 2 + 1),
 			BAR_HEIGHT + painter.fontMetrics( ).ascent( ) + LABEL_OFFSET,
 			NoteLabel[2 * _tuningNotation + 1][_currentPitch] );
 
